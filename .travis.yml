@@ -10,6 +10,8 @@ script:
 #  - docker run  damsnda/frontend-ang-kub npm run testCI
 after_success:
   - docker build -t damsnda/frontend-ang-kub ./frontend
+  - docker build -t damsnda/backend-ang-kub ./backend
    # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push damsnda/frontend-ang-kub
+  - docker push damsnda/backend-ang-kub
