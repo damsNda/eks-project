@@ -10,5 +10,8 @@ services:
    build:
     context: ./nginx
     dockerfile: Dockerfile
+   depends_on:
+      - frontend
+      - backend
    ports:
     - "80:80"
