@@ -5,7 +5,7 @@ const app = express();
 const httpPort=process.env.NODE_PORT || 3000;
 
 app.get('/personnes', (req, res) => {
-    let personnes= [{"id":1, firstName: "Damien", lastName: "N DA"},{"id":2, firstName: "Jeanne", lastName: "N DA"}];
+    let personnes= [{"id":1, firstName: "Vador", lastName: "Darth"},{"id":2, firstName: "Zinedine", lastName: "Zidane"}];
     res.json(personnes);
 });
 
