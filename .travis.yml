@@ -1,0 +1,10 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+before_install:
+  - docker build -t damsnda/frontend-ang-kub -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+  - docker run -e CI=true damsnda/frontend-ang-kub npm test
