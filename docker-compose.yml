@@ -1,0 +1,14 @@
+version: '3'
+services:
+  frontend:
+    image: 'damnda/frontend-ang-kub:latest'
+  backend:
+    image: 'damnda/backend-ang-kub:latest'
+    environment: 
+     - NODE_PORT= 3000
+  nginx:
+   build:
+    context: ./nginx
+    dockerfile: Dockerfile
+   ports:
+    - "80:80"
