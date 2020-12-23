@@ -1,4 +1,5 @@
-FROM node:alpine
+FROM markadams/chromium-xvfb-js
+
 WORKDIR "/app"
 COPY ./package.json ./
 RUN npm install
