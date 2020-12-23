@@ -4,7 +4,12 @@ language: generic
 services:
   - docker
 before_install:
-  - docker build -t damsnda/frontend-ang-kub -f ./frontend/Dockerfile.dev ./frontend
+#  - docker build -t damsnda/frontend-ang-kub -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run  damsnda/frontend-ang-kub npm run testCI
+#  - docker run  damsnda/frontend-ang-kub npm run testCI
+after_success:
+  - docker build -t damsnda/frontend-ang-kub ./frontend
+   # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push damsnda/frontend-ang-kub
